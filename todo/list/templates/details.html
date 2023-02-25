@@ -1,0 +1,18 @@
+<a href="{% url 'login' %}">Login</a>   ----------- <a href="{% url 'about' %}">Add Post</a>
+<h2>{{user}}</h2>
+
+{% for x in obj %}
+
+{% if x.approved %}
+    
+    
+{% if user.id == x.manager.id  %}
+<p>
+<li>   {{ x.title }} --- {{x.description }}   <a href="{% url 'update' x.pk %}">Edit</a> - - - <a href="{% url 'delete' x.pk %}">Delete</a></li>
+</p>
+{% else %}
+<li>   {{ x.title }} ---  <small>{{x.description}} </small></li>
+
+{% endif %}
+{% endif %}
+{% endfor %}

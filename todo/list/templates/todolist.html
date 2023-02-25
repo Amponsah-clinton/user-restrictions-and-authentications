@@ -1,0 +1,12 @@
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+
+
+{% for x in forms  %}
+<h3>{{ x }}</h3> 
+<p> {{x.date}} - {{x.time}}</p> <hr>
+{% endfor %}
